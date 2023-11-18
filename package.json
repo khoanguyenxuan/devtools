@@ -20,7 +20,8 @@
     "compile": "node ./esbuild.js",
     "package": "NODE_ENV=production node ./esbuild.js",
     "watch": "node ./esbuild.js --watch",
-    "lint": "eslint src --ext ts"
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
   },
   "devDependencies": {
     "@types/glob": "^8.0.0",
@@ -29,6 +30,8 @@
     "@types/vscode-webview": "^1.57.4",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.6",
     "esbuild": "^0.16.10",
     "eslint": "^8.26.0",
     "glob": "^8.0.3",

@@ -32,6 +32,16 @@ const webviewConfig = {
   outfile: "./out/webview.js",
 };
 
+/** @type BuildOptions */
+const testConfig = {
+  ...baseConfig,
+  platform: "node",
+  format: "cjs",
+  entryPoints: ["./src/test/extension.test.ts"],
+  outfile: "./out/test/extension.test.js",
+  external: ["vscode", "assert"]
+};
+
 // This watch config adheres to the conventions of the esbuild-problem-matchers
 // extension (https://github.com/connor4312/esbuild-problem-matchers#esbuild-via-js)
 /** @type BuildOptions */
@@ -67,11 +77,16 @@ const watchConfig = {
         ...webviewConfig,
         ...watchConfig,
       });
+      await build({
+        ...testConfig,
+        ...watchConfig
+      });
       console.log("[watch] build finished");
     } else {
       // Build extension and webview code
       await build(extensionConfig);
       await build(webviewConfig);
+      await build(testConfig);
       console.log("build complete");
     }
   } catch (err) {

@@ -28,3 +28,6 @@ Thumbs.db
 
 # Ignore out directory
 out/
+
+# Ignore vscode-test
+.vscode-test/
