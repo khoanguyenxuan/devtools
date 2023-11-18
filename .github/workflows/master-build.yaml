@@ -12,10 +12,16 @@ jobs:
         with:
           node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
-      - name: Build master
-        run: |
-          npm install
-          npm run lint
+      - name: Install dependencies
+        run: npm install
+      - name: Lint
+        run: npm run lint
+      - name: Build
+        run: 
           npm run compile
+      - name: Test
+        run:
           npm run test
+      - name: Package
+        run:
           npm run package
