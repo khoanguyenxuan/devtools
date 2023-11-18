@@ -15,5 +15,7 @@ jobs:
       - name: Build master
         run: |
           npm install
+          npm run lint
           npm run compile
+          npm run test
           npm run package
