@@ -1,6 +1,6 @@
-name: Build pr 
+name: Build master
 on:
-  pull_request:
+  push:
     branches: [ master ]
 
 jobs:
@@ -12,7 +12,8 @@ jobs:
         with:
           node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
-      - name: Build pull request
+      - name: Build master
         run: |
           npm install
           npm run compile
+          npm run package
