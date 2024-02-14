@@ -1,3 +1,8 @@
+"""Devtools setup script
+
+This script is used to configure the setup details for Devtools.
+"""
+
 from setuptools import setup, find_packages
 
 setup(
